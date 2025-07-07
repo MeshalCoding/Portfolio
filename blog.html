@@ -106,7 +106,7 @@
 <span>شاركني رأيك ..</span>
 </h3>
 <div class=comment-form>
-<form class=comment-form-content id=commentForm>
+<form class=comment-form-content id=commentForm1>
 <div class=row>
 <div class=col-12>
 <input name=name class=form-control placeholder=الاسم required>
@@ -179,7 +179,7 @@
 <div style=width:60px;height:3px;background:var(--primary-color);position:absolute;bottom:0;right:0;border-radius:2px></div>
 </h3>
 <div class=comment-form>
-<form class=comment-form-content id=commentForm>
+<form class=comment-form-content id=commentForm2>
 <div class=row>
 <div class=col-12>
 <input name=name class=form-control placeholder=الاسم required>
@@ -252,7 +252,7 @@
 <div style=width:60px;height:3px;background:var(--primary-color);position:absolute;bottom:0;right:0;border-radius:2px></div>
 </h3>
 <div class=comment-form>
-<form class=comment-form-content id=commentForm>
+<form class=comment-form-content id=commentForm3>
 <div class=row>
 <div class=col-12>
 <input name=name class=form-control placeholder=الاسم required>
@@ -268,7 +268,7 @@
 </div>
 </div>
 </form>
-<script>document.addEventListener("DOMContentLoaded",(()=>{document.getElementById("commentForm").addEventListener("submit",(function(t){t.preventDefault(),console.log("تم الضغط على إرسال التعليق");const e=this,n=e.querySelector(".submit-btn"),o=n.querySelector("span"),r=n.querySelector(".loading-icon");o.textContent="جاري الإرسال...",r.style.display="inline-block";const c=new FormData(e),s=c.get("name").trim(),i=s.split(" ")[0],a=c.get("comment").trim(),l=(new Date).toLocaleString("ar-EG",{timeZone:"Asia/Riyadh"}),m=new URLSearchParams({name:s,comment:a,date:l});fetch("https://shiny-field-1231.mmdm817.workers.dev/",{method:"POST",body:m}).then((t=>t.json())).then((t=>{if(r.style.display="none",!t.success&&"success"!==t.status)throw new Error("لم يتم تأكيد نجاح الإرسال");o.textContent="تم الإرسال!",Swal.fire({title:`شكرًا لك يا ${i}!`,text:"تم استقبال تعليقك الجميل بكل حب 💬",icon:"success",confirmButtonText:"رائع!",confirmButtonColor:"#ff4d4d",background:"var(--card-bg)",color:"var(--text-color)"}),setTimeout((()=>{e.reset(),o.textContent="إرسال التعليق"}),2e3)})).catch((t=>{r.style.display="none",o.textContent="إرسال التعليق",Swal.fire({title:"حدث خطأ",text:"لم يتم إرسال التعليق. حاول مرة أخرى لاحقًا.",icon:"error",confirmButtonText:"موافق",confirmButtonColor:"#ff4d4d"}),console.error(t)}))}))}))</script>
+<script>document.addEventListener("DOMContentLoaded",(()=>{["commentForm1","commentForm2","commentForm3"].forEach((t=>{const e=document.getElementById(t);e&&e.addEventListener("submit",(function(o){o.preventDefault(),console.log(`تم الضغط على إرسال التعليق في ${t}`);const n=e.querySelector(".submit-btn"),r=n.querySelector("span"),c=n.querySelector(".loading-icon");r.textContent="جاري الإرسال...",c.style.display="inline-block";const s=new FormData(e),m=s.get("name").trim(),i=m.split(" ")[0],a=s.get("comment").trim(),l=(new Date).toLocaleString("ar-EG",{timeZone:"Asia/Riyadh"}),d=new URLSearchParams({name:m,comment:a,date:l});fetch("https://shiny-field-1231.mmdm817.workers.dev/",{method:"POST",body:d}).then((t=>t.json())).then((t=>{if(c.style.display="none",!t.success&&"success"!==t.status)throw new Error("لم يتم تأكيد نجاح الإرسال");r.textContent="تم الإرسال!",Swal.fire({title:`شكرًا لك يا ${i}!`,text:"تم استقبال تعليقك الجميل بكل حب 💬",icon:"success",confirmButtonText:"رائع!",confirmButtonColor:"#ff4d4d",background:"var(--card-bg)",color:"var(--text-color)"}),setTimeout((()=>{e.reset(),r.textContent="إرسال التعليق"}),2e3)})).catch((t=>{c.style.display="none",r.textContent="إرسال التعليق",Swal.fire({title:"حدث خطأ",text:"لم يتم إرسال التعليق. حاول مرة أخرى لاحقًا.",icon:"error",confirmButtonText:"موافق",confirmButtonColor:"#ff4d4d"}),console.error(t)}))}))}))}))</script>
 </div>
 </div>
 </div>
